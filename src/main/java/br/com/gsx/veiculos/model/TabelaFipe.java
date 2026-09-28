@@ -1,9 +1,15 @@
 package br.com.gsx.veiculos.model;
 
-import org.springframework.boot.Banner;
+import br.com.gsx.veiculos.service.ConsumoAPI;
+import br.com.gsx.veiculos.service.ConverteDados;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.databind.exc.IgnoredPropertyException;
 
-public record TabelaFipe(String TipoVeiculo,
-                         String Valor,
+import java.util.Comparator;
+import java.util.List;
+
+@JsonIgnoreProperties(ignoreUnknown = true)
+public record TabelaFipe(String Valor,
                          String Marca,
                          String Modelo,
                          String AnoModelo,
@@ -11,12 +17,13 @@ public record TabelaFipe(String TipoVeiculo,
                          String CodigoFipe,
                          String MesReferencia,
                          String SiglaCombustivel) {
+
     @Override
     public String toString() {
-        return "Marca: " + Marca + "\n"+
-               "Modelo: " + Modelo + "\n"+
-               "Ano/Modelo: " + AnoModelo + "\n"+
-               "Combustível: " + Combustivel + "\n"+
-               "Valor: " + Valor;
+        return "Valor: R$ " + Valor +
+               " - Ano/Modelo: " + AnoModelo +
+               " - Marca: " + Marca +
+               " - Modelo: " + Modelo +
+               " - Mês Referência: " + MesReferencia + "\n";
     }
 }
