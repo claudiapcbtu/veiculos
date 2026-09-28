@@ -65,7 +65,8 @@ public class MenuPrincipal {
             var modeloLista = converteDados.obterDados(json, Modelos.class);
             modeloLista.modelos().stream()
                     .sorted(Comparator.comparing(Dados::descricao))
-                    .forEach(System.out::println);
+                    .forEach(System.out::println) ;
+
 
             System.out.println("Informe o Código do Modelo para retornar os Anos!");
             var codModelo = leitura.nextLine();
